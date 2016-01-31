@@ -73,7 +73,7 @@ namespace UnityStandardAssets.Utility
                     case Mode.Animate:
                         if (targetGameObject != null)
                         {
-                            targetGameObject.GetComponent<Animation>().Play();
+                            targetGameObject.GetComponent<Animation>().Play("circle_transition_menu_start");
                         }
                         break;
                     case Mode.Deactivate:

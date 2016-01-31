@@ -1,15 +1,18 @@
 ﻿#pragma strict
 
-var fadeTime = 0.01;
+var fadeTime = 0.005;
 var textNum = 3;
 
 function Start () {
+    // Wait for fade from black
+    yield WaitForSeconds (3);
+
     while (textNum > 0)
     {
         Debug.Log("Calling FadeOut");
         yield FadeOut();
         --textNum;
-        GetComponent.<UnityEngine.UI.Text>().text = textNum + "!";
+        GetComponent.<UnityEngine.UI.Text>().text = textNum + "";
         GetComponent.<UnityEngine.UI.Text>().color.a = 1;
     }
     GetComponent.<UnityEngine.UI.Text>().text = "GO!";

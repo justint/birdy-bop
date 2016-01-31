@@ -3,10 +3,10 @@ using System.Collections;
 using TouchScript.Gestures;
 using System;
 
-public class Menu_TapStart : MonoBehaviour {
+
+public class Intro_Dialog_TapStart : MonoBehaviour {
 
     private TapGesture tapGesture;
-    public GameObject circle_transition;
 
     private void OnEnable()
     {
@@ -16,12 +16,11 @@ public class Menu_TapStart : MonoBehaviour {
 
         Debug.Log("Subscribed to tap");
 
-
     }
 
     private void OnDisable()
     {
-       tapGesture.Tapped -= tappedHandler;
+        tapGesture.Tapped -= tappedHandler;
     }
 
     private void tappedHandler(object sender, EventArgs e)
@@ -32,13 +31,6 @@ public class Menu_TapStart : MonoBehaviour {
 
     private void FadeOut()
     {
-        circle_transition.GetComponent<Animator>().Play("BeginRoll");
-        StartCoroutine(WaitForRoll());
-    }
-
-    IEnumerator WaitForRoll()
-    {
-        yield return new WaitForSeconds(0.5f);
         Application.LoadLevel(2);
     }
 }
